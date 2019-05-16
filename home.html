@@ -1,0 +1,186 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload = "addRow()">
+<button class="tablink" onclick="openPage('Home', this, 'grey')" >Home</button>
+<button class="tablink" onclick="openPage('Timetable', this, 'grey')">Timetable</button>
+<button class="tablink" onclick="openPage('BudgetPlanner', this, 'grey')">Budget Planner</button>
+<button class="tablink" onclick="openPage('Features', this, 'grey')">To Do List</button>
+<button class="tablink" onclick="openPage('Login', this, 'grey')" id="defaultOpen">Login</button>
+<div id="Home" class="tabcontent">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="card">
+        <img src="https://i.kym-cdn.com/entries/icons/mobile/000/025/526/gnome.jpg" alt="Gnome" style="width:100%">
+        <h1>Gnome McGnome</h1>
+        <p class="title">3rd Year Computer Science</p>
+        <p>Maynooth University</p>
+
+    </div>
+
+    <p id = "leftcolumn">
+        <h1> Daily Quote</h1>
+        <button onclick ="newQuote()"> New Quote</button>
+
+        <script src ="javascript.js"></script>
+    </p>
+
+
+        <p id = "rightcolumn">
+            <h1> Daily  Fact</h1>
+            <button onclick ="newFact()">New Fact</button>
+
+            <script src ="javascript.js"></script>
+        </p>
+</div>
+
+
+
+
+<!-- Modal -->
+	
+	<div id = "myModal" class="modal"  style="display:none">
+			<div class = "modal-content">
+			<span class="closer">&times;</span>
+			<p id = "rowCol"></p>
+			<input placeholder = "Title Here" id = "title" readonly></input>
+			<button id = "editModalButton">Edit</button>
+			<br>
+			<textarea rows = "10" cols = "90" placeholder = "Note" id = "note" readonly></textarea>
+		</div>
+	</div>
+
+<div id="Timetable" class="tabcontent">
+    <h3>Timetable</h3>
+    <p>Insert Timetable</p>
+
+	  <!-- Initial Table headers -->
+  <table align="center" id="table">
+      <tr id="firstrow">
+      <th  contenteditable="false"> Time </th>
+      <th  contenteditable="false"> Monday </th>
+      <th  contenteditable="false"> Tuesday </th>
+      <th  contenteditable="false"> Wednesday </th>
+	  <th  contenteditable="false"> Thursday </th>
+	  <th  contenteditable="false"> Friday </th>
+	  <th  contenteditable="false"> Saturday </th>
+	  <th  contenteditable="false"> Sunday </th>
+    </tr>
+	</table>
+</div>
+
+
+
+<div id="BudgetPlanner" class="tabcontent">
+
+	<div>
+		<div class = "cen">
+		<!--<label>Budget availble for Month</label>-->
+		<label id="moneyAvil"></label>
+		<label id = "moneyValue"> <label>
+		</div>
+
+	</div>
+<br>
+
+	<div>
+		<select id = "Figure">
+		<option id = "1">+</option>
+		<option id = "2">-</option>
+		</select>
+		<input placeholder = "€ Values"id ="moneyInput"></input>
+		<input placeholder = "Summary" id = "summary"></input>
+		<button id = "submit" onclick="calculate()">Submit</button>	
+	</div>
+
+
+	<table id="display">
+  	<tr>
+    		<th>Money</th>
+    		<th>Summary</th>
+    		<th>Date</th>
+	  </tr>
+	</table>
+
+</div>
+	</div>
+
+
+<div id="Features" class="tabcontent">
+    <h3>To Do</h3>
+    
+
+
+	<div id="myDIV" class="header">
+	  <h2 style="margin:5px">My To Do List</h2>
+	  <input type="text" id="myInput" placeholder="Add things to do...">
+	  <button onclick="newElement()" class="addBtn">Add</button>
+	</div> 
+
+	<ul id="myUL">
+
+	</ul>
+
+</div>
+
+<div id="Login" class="tabcontent">
+    
+<div id="placeholder" class="container">
+
+		
+	 <form  id="contact"onsubmit="event.preventDefault();">
+		<h1>Login </h1>
+		or <a onclick="hideLogin()">Sign up</a> 
+		<fieldset>
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Username"  id="uname" required>
+		</fieldset>
+
+
+
+	<fieldset>
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="pass" required>
+		</fieldset>
+
+    <button type="submit" onClick = "doLogin()">Login</button>
+
+	</form>
+
+</div>
+
+
+<div id="signup" class="container" style="display:none">
+	<form id="contact" onsubmit="event.preventDefault(); doRegister();">
+			<h1>Register</h1>
+		or <a onclick="hideLogin()">Login</a>
+	<fieldset>
+    <label><b>Username</b></label>
+    <input type="text" placeholder="Enter Email"  id="uname1" required>
+	</fieldset>
+
+	<fieldset>
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="pass1" required>
+	</fieldset>
+    <button type="submit" >Register</button>
+
+	</form>
+
+</div>
+
+
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<script src ="login.js"></script>
+<script src ="register.js"></script>
+<script src="todo.js"></script>
+<script src ="budget.js"></script>
+<script src ="javascript.js"></script>
+<script src="timetable.js"></script>
+</body>
+</html>
+
